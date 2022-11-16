@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const { create, list, read, update, remove } = require("../controllers/persons");
 
-router.get("/create", (req, res) => {
-  //
-  res.send("หน้า Person");
-});
+//middleware
+const { auth } = require('../middleware/auth')
 
-router.get("/update", (req, res) => {
-  //
-  res.send("หน้า Update Person");
-});
+//routes @POST localhost:8000/api/person
+router.get("/person/:id",auth,list);
+router.get("/person",auth,read);
+router.post("/person",auth,create);
+router.put("/person/:id",auth,update);
+router.delete("/person/:id",auth,remove);
 
 module.exports = router;
