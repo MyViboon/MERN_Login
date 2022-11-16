@@ -3,8 +3,12 @@ const router = express.Router();
 
 const { createRegister, login } = require("../controllers/auth");
 
-router.get("/register", createRegister);
+//routes @POST localhost:8000/api/register
+//@Private
+router.post("/register", createRegister);
 
-router.get("/login", login);
+//routes @POST localhost:8000/api/login
+//@Public
+router.post("/login", login);
 
 module.exports = router;
