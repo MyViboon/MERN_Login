@@ -31,7 +31,7 @@ exports.createRegister = async (req, res) => {
       if (err) throw err;
       res.json({ token });
     });
-    // res.send("User Register Complete");
+    res.send("User Register Complete");
     //-----------------------------------------------
   } catch (err) {
     console.log(err.massage);
@@ -41,10 +41,10 @@ exports.createRegister = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { name, password } = req.body;
-//   console.log(name)
+  //   console.log(name)
   try {
     //Check User
-    let user = await User.findOne({ name });
+    let user = await User.findOneAndUpdate({ name }, { new: true });
     if (!user) {
       return res.status(400).send("User Invalid");
     }
@@ -65,7 +65,7 @@ exports.login = async (req, res) => {
     };
     jwt.sign(payload, "jwtSecret", { expiresIn: 3600 }, (err, token) => {
       if (err) throw err;
-      res.json({ token });
+      res.json({ token, payload });
     });
     // res.send("User Register Complete");
     //-----------------------------------------------

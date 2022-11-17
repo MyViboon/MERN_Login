@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Redux
 // import { Provider } from "react-redux";
@@ -16,13 +14,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Router
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 reportWebVitals();
