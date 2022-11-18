@@ -46,10 +46,11 @@ const Login = () => {
             token: res.data.token,
             name: res.data.payload.user.name,
             role: res.data.payload.user.role,
+            id: res.data.payload.user._id
           })
         );
         localStorage.setItem("token", res.data.token);
-        console.log("เข้าระบบ", res.data);
+        console.log("เข้าสู่ระบบ", res.data);
         toast.success("Login Success!", {
           theme: "colored",
         });

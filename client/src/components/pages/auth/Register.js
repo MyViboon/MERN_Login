@@ -25,6 +25,7 @@ const Register = () => {
     e.preventDefault();
     if (password !== password2) {
       console.log("No match");
+      toast.error('Password not Match')
     } else {
       const newUser = {
         name,
@@ -74,7 +75,7 @@ const Register = () => {
               placeholder="Confirm Password"
               onChange={(e) => onChange(e)}
             />
-            <button className="btn btn-success" type="submit">
+            <button className="btn btn-success" type="submit" disabled={password.length < 6}>
               Submit
             </button>
           </form>
