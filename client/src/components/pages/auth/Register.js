@@ -26,6 +26,7 @@ const Register = () => {
     if (password !== password2) {
       console.log("No match");
       toast.error('Password not Match')
+      setLoading(false)
     } else {
       const newUser = {
         name,

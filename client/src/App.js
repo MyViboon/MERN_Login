@@ -20,6 +20,7 @@ import UserDashboard from "./components/pages/users/UserDashboard";
 
 //Redux
 import { login } from "./store/userSlice";
+import AdminCreatePerson from "./components/pages/admin/AdminCreatePerson";
 
 function App() {
   const dispatch = useDispatch();
@@ -69,6 +70,14 @@ function App() {
           element={
             <AdminRoute>
               <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/create-person"
+          element={
+            <AdminRoute>
+              <AdminCreatePerson />
             </AdminRoute>
           }
         />
